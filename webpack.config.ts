@@ -39,6 +39,10 @@ const config: webpack.Configuration = {
     new HtmlWebpackPlugin({
       template: 'public/index.html',
     }),
+    new webpack.DefinePlugin({
+      isProd: NODE_ENV === 'production',
+      PREFIX: JSON.stringify(GITHUB_PREFIX),
+    })
   ],
   devServer: {
     compress: true,
