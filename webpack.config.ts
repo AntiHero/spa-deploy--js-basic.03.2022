@@ -14,6 +14,7 @@ const config: webpack.Configuration = {
     filename: 'bundle.js',
     path: resolve(__dirname, 'dist'),
     clean: true,
+    publicPath: '/'
   },
   mode: NODE_ENV,
   resolve: {
@@ -41,6 +42,7 @@ const config: webpack.Configuration = {
     compress: true,
     port: 9000,
     watchFiles: ['public/index.html'],
+    historyApiFallback: true,
   },
 };
 
