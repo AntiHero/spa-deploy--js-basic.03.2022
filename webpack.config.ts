@@ -8,13 +8,15 @@ const NODE_ENV = process.env.NODE_ENV as
   | 'production'
   | undefined;
 
+const GITHUB_PREFIX = '/spa-deploy--js-basic.03.2022';
+
 const config: webpack.Configuration = {
   entry: './src/index.ts',
   output: {
     filename: 'bundle.js',
     path: resolve(__dirname, 'dist'),
     clean: true,
-    publicPath: '/'
+    publicPath: NODE_ENV === 'production' ? GITHUB_PREFIX : '/',
   },
   mode: NODE_ENV,
   resolve: {
